@@ -43,4 +43,12 @@ public class Mensaje {
   public void setNombreRemitente(String nombreRemitente) {
     this.nombreRemitente = nombreRemitente;
   }
+
+  public Estado getEstado(){
+    return this.estado;
+  }
+
+  public void setEstado(Estado estado){
+    this.estado = estado;
+  }
 }
