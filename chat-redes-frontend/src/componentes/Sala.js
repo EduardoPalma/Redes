@@ -5,7 +5,7 @@ import SockJS from 'sockjs-client';
 var stompClient = null;
 const Sala = () => {
 	const [salaPublica, setsalaPublica] = useState([]);
-	const [salaPrivada, setsalaPrivada] = useState(new Map());
+	const [salaPrivada, setsalaPrivada] = useState([]);
 	const [datosUsuario, setdatosUsuario] = useState({
 		nombreUsuario: '',
 		nombreDestinario : '',
@@ -80,46 +80,43 @@ const Sala = () => {
 
     return (
 	<div className='container'>
-		<div className="d-flex justify-content-center align-items-center" style={{height: "100vh"}} >
+		<div className="abs-center">
 			{datosUsuario.conectado?
-			<div id='chat'>
-				<div id='list-usuarios'> 
+			<div className='chat'>
+				<div className='list-usuarios'> 
 					<ul>
-						<li>
+						<li className='public'>
 							Sala Publica
 						</li>
 						{[salaPrivada.keys()].map((name,index) => (
-							<li key={index}>
+							<li className='usuarios' key={index}>
 								{name}
 							</li>
 						))}
 
 					</ul>
 				</div>
-				<div id='table-mensajes'> 
-					<div > 
-						<ul className='mensajes-publicos'>
+				<div className='table-mensajes'> 
+						<div className='mensajes-publicos'>
 							{salaPublica.map((chatMensaje,index) => (
-								<li key={index}>
-									<div>{chatMensaje.nombreRemitente}</div>
-									<div>{chatMensaje.mensaje}</div>
-								</li>
+								<div className={`mensaje ${chatMensaje.nombreRemitente === datosUsuario.nombreUsuario && "usuario"}`} key={index}>
+									<div className='dato-remitente'>{chatMensaje.nombreRemitente}</div>
+									<div className='dato-mensaje'>{chatMensaje.mensaje}</div>
+								</div>
 							))}	
-						</ul>
-						<div> 
-							<input type="text" placeholder='ingrese un Mensaje' value={datosUsuario.mensaje} onChange={manejarMensaje}></input>
-							<button type='button' onClick={enviarMensaje} >Enviar</button>
 						</div>
-					</div>
+						<div className='enviar-mensaje'> 
+							<input className='entrada-mensaje' type="text" placeholder='ingrese un Mensaje' value={datosUsuario.mensaje} onChange={manejarMensaje}></input>
+							<button classname ="btn btn-success" type='button' onClick={enviarMensaje} >Enviar</button>
+						</div>
 				</div>
-
 			</div>
 			:
-			<div className='text-center'>
+			<div className='entrada-usuario'>
 				<input id='nombre-usuario' placeholder='ingrese su nombre' value={datosUsuario.nombreUsuario} onChange = {manejarUsuario}></input>
-				<button className='btn btn-success' type='button' onClick={conectado}> Conectarse</button>
+				<button className="" type='button' onClick={conectado}> Conectarse</button>
 			</div>
-			}	
+			}
 		</div>
 	</div>
     )
