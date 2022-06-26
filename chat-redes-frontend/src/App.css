@@ -9,6 +9,19 @@
   height: 100vh;
 }
 
+.enviar-mensaje{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+}
+
+button{
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #D09A53;
+  padding: 8px;
+}
 
 .abs-center{
   display: flex;
@@ -31,7 +44,7 @@
 
 .chat{
   box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.034),0 6.7px 5.3px rgba(0, 0, 0, 0.048),0 12.5px 10px rgba(0, 0, 0, 0.06),0 22.3px 17.9px rgba(0, 0, 0, 0.072),0 41.8px 33.4px rgba(0, 0, 0, 0.086),0 100px 80px rgba(0, 0, 0, 0.12);
-  margin:40px 50px;
+  margin: 40px 50px;
   height: 550px;
   width: 800px;
   padding: 10px;
@@ -39,6 +52,46 @@
   flex-direction: row;
   border-radius: 10px;
   background-color: #2E2B27;
+}
+
+.mensajes-publicos{
+  height: 490px;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  flex-direction: row;
+  background-color: #5A544C;
+  overflow-y: scroll;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-mensaje{
+  width: 100%;
+  display: flex;
+}
+
+.contenedor-mensaje.left{
+  justify-content: end;
+}
+
+.mensaje{
+  display: inline-block;
+  padding:5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 5px 10px;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.mensaje.usuario{
+  background-color: #D88A22;
 }
 
 .list-usuarios{
@@ -51,22 +104,10 @@
   border: 10px;
 }
 
-.mensajes-publicos{
-  height: 490px;
-  border: 1px solid dimgray;
-  border-radius: 10px;
-  overflow-y: scroll;
-}
-
-.enviar-mensaje{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  border-radius: 5px;
-}
 
 .entrada-mensaje{
-  width: 600px;
+  width: 92%;
+  height: auto;
 }
 
 .public{
@@ -74,8 +115,10 @@
   list-style: none;
   margin: 5px 2px;
   box-shadow: 0 8px 8px -4px lightblue;
-  background-color: #000;
-  color: aliceblue;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  color: black;
+  text-align: center;
 }
 
 .usuarios{
@@ -84,6 +127,9 @@
   border:#000;
   margin: 10px 2px;
   box-shadow: 0 8px 8px -4px lightblue;
+  background-color: #D88A22;
+  border-radius: 10px;
+  color: black;
 }
 
 ul {
@@ -91,19 +137,6 @@ ul {
   list-style-type: none;
 }
 
-.mensaje{
-  justify-content: start;
-  display: flex;
-  padding: 5px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  margin: 5px 10px;
-  background-color: bisque;
-  flex-direction: column;
-}
-
-.mensaje.usuario{
-  background-color: darkgrey;
-}
 
 .dato-remitente{
   font-weight: bold;
@@ -114,8 +147,11 @@ ul {
 }
 
 .entrada-mensaje{
-  background-color: darkgrey;
+  background-color: #4B4742;
   border-radius: 5px;
+  padding: 7px;
+  color: aliceblue;
 }
+
 
 
