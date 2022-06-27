@@ -23,7 +23,6 @@ public class SalaControlador {
   @SendTo
   public Mensaje recibeMensajePrivado(@Payload Mensaje mensaje){
     simpMessagingTemplate.convertAndSendToUser(mensaje.nombreDestinario,"/privado",mensaje);
-    System.out.println(mensaje);
     return mensaje;
   }
 }
